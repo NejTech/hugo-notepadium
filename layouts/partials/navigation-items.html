@@ -12,7 +12,7 @@
         {{- if strings.HasPrefix $url "/" -}}{{- $url = $url | relLangURL -}}{{- end -}}
         <a class="nav item" href="{{- $url -}}" 
             {{- if strings.HasPrefix $url "http" -}}target="_blank"
-            {{- end -}}>{{- .title -}}</a>
+            {{- end -}}>{{- T .title -}}</a>
     {{- end -}}
 </nav></div>
 {{- end -}}

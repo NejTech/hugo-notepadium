@@ -1,0 +1,16 @@
+[edited]
+other = " • upravil %s"
+
+[readingTime]
+one = " • Jedna minuta na přečtení"
+other = " • {{ .Count }} minuty na přečtení"
+
+[more]
+other = "více"
+
+[Categories]
+other = "Kategorie"
+
+[Tags]
+other = "Tagy"
+
