@@ -1,6 +1,6 @@
 ![](https://raw.githubusercontent.com/cntrump/hugo-notepadium/master/images/screenshot.png)
 
-# hugo-notepadium ![](https://img.shields.io/badge/license-MIT-blue.svg) [![Netlify Status](https://api.netlify.com/api/v1/badges/2f389751-e070-437b-9dbd-3773bd57322e/deploy-status)](https://lvv.me)
+# Notepadium ![](https://img.shields.io/badge/license-MIT-blue.svg) [![Netlify Status](https://api.netlify.com/api/v1/badges/2f389751-e070-437b-9dbd-3773bd57322e/deploy-status)](https://lvv.me)
 
 Request Hugo Version: [0.60.0+](https://github.com/gohugoio/hugo/releases/)
 
@@ -24,6 +24,8 @@ Features
 - Custom article cover supporting
 - Article share supporting (thanks [@jianyuanzh](https://github.com/jianyuanzh))
 - [Twitter Card](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/summary) supporting
+- Builtin iconfont (3KB)
+- Display author profile at article bottom
 
 Preview the exampleSite:
 
@@ -103,6 +105,12 @@ url = "/about"
 [[params.nav.custom]]
 title = "Hugo"
 url = "https://gohugo.io/"
+
+# for chinese
+[params.beian]
+  icp = ""     # example: 粤ICP备20056596号-1
+  gongan = ""  # example: 粤公网安备 44030502005645号
+  code = ""    # example: 44030502005645
 ```
 
 ### Logo and Slogan
@@ -249,6 +257,8 @@ On user-side:
 
 `color.css` and `font.css` will be bundled into `core.css`.
 
+_Note:_ You can use Hugo templating in these CSS assets.
+
 ### Custom JS
 
 ```toml
@@ -363,6 +373,52 @@ title = "..."
 cover = "01.png"
 +++
 ```
+
+### Display author profile at article bottom
+
+Global settings, Edit `config.toml`
+
+```toml
+[params.profile]
+  enable = true
+  avatar = "/img/avatar.jpg"
+  name = "XXX"
+  bio = "XXX"  # support markdown syntax
+  twitter = "XXX"  # https://twitter.com/XXX
+  github = "XXX"  # https://github.com/XXX
+  docker = "XXX"  # https://hub.docker.com/u/XXX
+  email = "XXX@mail.com"  # mailto:XXX@mail.com
+```
+
+Or page-by-page, on front matter:
+
+```toml
++++
+title = "..."
+date = 2020-05-01T22:20:36+08:00
+
+[profile]
+  enable = true
+  avatar = "/img/avatar.jpg"
+  name = "XXX"
+  bio = "XXX"  # support markdown syntax
+  twitter = "XXX"  # https://twitter.com/XXX
+  github = "XXX"  # https://github.com/XXX
+  docker = "XXX"  # https://hub.docker.com/u/XXX
+  email = "XXX@mail.com"  # mailto:XXX@mail.com
++++
+```
+
+### Set robots meta tag
+
+In the front matter of any page, you can selectively enable the `robots` meta tag
+and define its content:
+
+```toml
+robots = "noindex,nofollow"
+```
+
+If `noindex` is included, that page will also be hidden in `sitemap.xml`.
 
 ## Thanks
 
